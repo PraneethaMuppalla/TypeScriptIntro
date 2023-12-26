@@ -1,0 +1,365 @@
+Static Typing:
+JavaScript: JavaScript is a dynamically typed language, which means that variable 
+types are determined at runtime. This can lead to errors that are only discovered during execution.
+TypeScript: TypeScript introduces static typing, allowing developers to specify the types
+ of variables, function parameters, and return values. This helps catch type-related errors during development, 
+ before the code is executed. It adds a layer of predictability and makes the codebase more maintainable.
+
+Interfaces:
+JavaScript: JavaScript does not have built-in support for interfaces. 
+Object shapes are not explicitly defined, which can lead to confusion and errors 
+when working with complex data structures.
+TypeScript: TypeScript allows developers to define interfaces, 
+which serve as contracts for the structure of objects. 
+This enhances code readability, provides better documentation, and helps catch issues 
+related to incorrect object shapes early in the development process.
+
+Enums:
+JavaScript: JavaScript lacks native support for enumerations (enums),
+ making it less expressive when developers need to represent a set of named constant values.
+TypeScript: TypeScript introduces enums, allowing developers to define a set of named constants,
+ making the code more readable and self-explanatory.
+
+Union and Intersection Types:
+JavaScript: JavaScript does not have native support for union and intersection types. 
+Working with different data structures or combining types can be challenging.
+TypeScript: TypeScript introduces union types (allowing a variable to have multiple types)
+ and intersection types (combining multiple types). 
+ This provides flexibility and expressiveness when dealing with various scenarios in code.
+
+Classes and Modules:
+JavaScript: JavaScript has object-oriented features, 
+but it lacks classes and modules as first-class citizens in the language.
+TypeScript: TypeScript brings a more structured approach to object-oriented programming 
+by introducing class and module syntax, making it easier to organize and encapsulate code.
+
+Optional Static Types:
+JavaScript: In JavaScript, developers can write code without explicitly specifying types for variables,
+ leading to a more flexible but potentially error-prone development process.
+TypeScript: TypeScript allows developers to opt for static types where needed,
+ providing a balance between the flexibility of JavaScript and the safety of static typing.
+  Developers can gradually introduce types to existing JavaScript codebases.
+In summary, TypeScript builds on JavaScript by adding static typing, interfaces, enums, union and intersection types, classes, modules, decorators, and other features. These additions aim to improve code quality, readability, and maintainability while preserving the flexibility and expressiveness of JavaScript.
+
+
+
+WHY TS COMPILER?
+
+The TypeScript compiler is essential because it translates TypeScript code,
+which includes static types and additional features,
+into standard JavaScript code that can be executed by browsers or any JavaScript runtime environment. 
+
+
+
+Types of TS
+
+In TypeScript, there are various types that you can use to annotate variables, 
+function parameters, and return types. Here are some of the basic and commonly used types in TypeScript:
+
+Boolean:
+Represents a boolean value (true or false).
+let isDone: boolean = false;
+
+Number:
+Represents numeric values, including integers and floating-point numbers.
+let decimal: number = 6;
+let hex: number = 0xf00d;
+let binary: number = 0b1010;
+let octal: number = 0o744;
+
+String:
+Represents textual data.
+let color: string = "blue";
+let fullName: string = `John Doe`;
+
+Array:
+Represents an array of values.
+let numbers: number[] = [1, 2, 3, 4];
+let fruits: Array<string> = ["apple", "banana", "orange"];
+
+Tuple:
+Represents an array with a fixed number of elements, each with its own type.
+let tupleExample: [string, number] = ["example", 123];
+
+Enum:
+Represents a set of named constants.
+enum Color {
+    Red,
+    Green,
+    Blue
+}
+let myColor: Color = Color.Green;
+
+Any:
+Represents a dynamic type where the variable can have any value.
+let dynamicValue: any = 123;
+dynamicValue = "hello";
+
+Void:
+Represents the absence of a type. Typically used for functions that do not return a value.
+function logMessage(): void {
+    console.log("This is a log message.");
+}
+
+Null and Undefined:
+Represents the absence of a value.
+let nullValue: null = null;
+let undefinedValue: undefined = undefined;
+
+Object:
+Represents any non-primitive type.
+let obj: object = { key: "value" };
+
+Never:
+Represents a type for values that never occur. It is often used for functions that
+ throw exceptions or enter infinite loops.
+function throwError(message: string): never {
+    throw new Error(message);
+}
+
+Union Types:
+Represents a value that can have one of several types.
+let value: string | number;
+value = "hello";
+value = 123;
+
+Intersection Types:
+Represents a type formed by combining multiple types.
+interface Car {
+    brand: string;
+    model: string;
+}
+
+interface Electric {
+    batteryType: string;
+}
+
+let electricCar: Car & Electric;
+These are some of the basic types in TypeScript.
+ The language provides a rich set of features for working with types, 
+ enabling developers to create more robust and maintainable code. 
+ Additionally, TypeScript allows you to define custom types using interfaces, classes, and other constructs.
+
+
+TypeScript Inference
+TypeScript has a feature known as "type inference," which means the compiler can automatically 
+determine the type of a variable based on its usage and assignment.
+ In other words, you don't always have to explicitly specify the types of variables; 
+// TypeScript infers that x is of type number
+let x = 10;
+x = "John";   ///ts error
+// TypeScript infers that y is of type string
+let y = "hello";
+
+Typescript casting
+Type casting, also known as type conversion, is the process of changing an entity from one data type to another. 
+
+Explicit Type Casting:
+In explicit type casting, the programmer explicitly specifies the desired data type for the conversion. 
+This is typically done through a syntax provided by the programming language. 
+In TypeScript, explicit type casting is often referred to as "type assertion."
+Example in TypeScript:
+let myValue: any = "123";
+let myNumber: number = Number(myValue);
+
+Implicit Type Casting:
+Implicit type casting, also known as type coercion, occurs automatically by the programming language
+ without the programmer's intervention. The language performs the conversion based on predefined rules.
+
+Example in JavaScript (TypeScript's underlying language):
+let num = 10;
+let str = "20";
+
+let result = num + str; // Implicit type casting (coercion)
+console.log(result);    // Output: "1020"
+In this JavaScript example, the addition operation involves a numeric value (num) and a string value (str). 
+The JavaScript engine implicitly converts the numeric value to a string, 
+and the result is the concatenation of the two strings.
+
+tsconfig.json
+tsconfig.json is a configuration file used by TypeScript to specify compiler options and project settings.
+The name stands for "TypeScript Configuration." When you run the tsc (TypeScript compiler) command, 
+it looks for a tsconfig.json file in the project directory to determine how to compile the TypeScript code.
+
+Compiler Options:
+The primary purpose of tsconfig.json is to configure the TypeScript compiler. 
+It includes a wide range of options that control how TypeScript code is transpiled into JavaScript.
+ These options cover areas such as target ECMAScript version, module system, source maps, and more.
+
+ ! ignore null case
+
+In TypeScript, the exclamation mark (!) is known as the "non-null assertion operator."
+ It tells the TypeScript compiler to treat the expression to its left as non-null or non-undefined, 
+ even if the compiler cannot determine that for sure. 
+ This is a way to assert to the compiler that you are certain a value is not null or undefined
+  at a particular point in the code.
+
+ 
+In TypeScript, enabling strict mode involves turning on a set of compiler options 
+that enforce stricter type-checking rules and coding practices. 
+These options help catch potential errors and improve the overall quality and maintainability of your code. 
+Strict mode is designed to enhance the reliability and correctness of TypeScript code 
+by introducing additional constraints. Here are some key aspects of what strict mode does:
+
+strict:
+
+When you set "strict": true in the compilerOptions of your tsconfig.json, it turns on several strict mode options, including noImplicitAny, noImplicitThis, strictNullChecks, strictFunctionTypes, and others. This serves as a shorthand to enable multiple strict options simultaneously.
+Example:
+
+json
+Copy code
+{
+  "compilerOptions": {
+    "strict": true
+  }
+}
+noImplicitAny:
+
+In strict mode, the noImplicitAny option prevents the compiler from implicitly inferring the any type when it cannot determine a more specific type. This encourages explicit type annotations, reducing the likelihood of unintentional type-related errors.
+noImplicitThis:
+
+The noImplicitThis option ensures that TypeScript requires a valid this type in functions. It helps catch potential issues when using this in functions without proper type annotations or when the function is not a method of a class.
+strictNullChecks:
+
+This option introduces stricter null and undefined checking. Variables are considered to have the types T, T | undefined, or T | null instead of simply T. It helps prevent null and undefined errors by making sure that you explicitly handle or check for these values.
+strictFunctionTypes:
+
+With strictFunctionTypes enabled, function parameter types are checked more strictly when it comes to function parameter bivariance. This means that functions with more specific parameter types are not assignable to functions with more general parameter types, even if the function bodies are compatible.
+strictPropertyInitialization:
+
+This option requires that class properties are initialized in the constructor or through property declaration. It helps catch potential issues with uninitialized properties.
+Example:
+
+json
+Copy code
+{
+  "compilerOptions": {
+    "strictPropertyInitialization": true
+  }
+}
+strictBindCallApply:
+
+The strictBindCallApply option enforces stricter rules for bind, call, and apply methods on functions. It helps prevent common mistakes and ensures more type safety.
+Example:
+
+json
+Copy code
+{
+  "compilerOptions": {
+    "strictBindCallApply": true
+  }
+}
+Enabling strict mode is recommended for TypeScript projects, especially in larger codebases,
+ as it helps catch potential errors early in the development process and promotes a more robust and 
+ maintainable codebase.
+  However, it may require developers to write more explicit type annotations and handle potential null or 
+  undefined values more carefully. 
+  The benefits of improved code quality and early error detection 
+  often outweigh the additional constraints imposed by strict mode.
+
+
+
+
+  
+Strict mode is a feature in JavaScript that was introduced in ECMAScript 5 (ES5) to enforce a more rigid set of rules and constraints on the language. When strict mode is enabled, certain practices that were considered errors or potential sources of bugs are caught and flagged by the JavaScript engine.
+
+To enable strict mode in JavaScript, you include the directive "use strict"; at the beginning of a script or function. Here are some key aspects of what strict mode does in JavaScript:
+
+Prevents Implicit Global Variables:
+
+In non-strict mode, if you declare a variable without using var, let, or const, it becomes a global variable. Strict mode prevents this behavior and requires explicit declaration of variables.
+javascript
+Copy code
+// Non-strict mode
+undeclaredVariable = 10; // Creates a global variable
+
+// Strict mode
+"use strict";
+undeclaredVariable = 10; // Throws an error
+Throws Errors on Assigning to Read-Only Properties:
+
+In strict mode, attempting to assign a value to a read-only property or a non-writable global variable results in an error.
+javascript
+Copy code
+"use strict";
+
+// Non-strict mode
+NaN = 42; // No error
+
+// Strict mode
+NaN = 42; // Throws an error
+Throws Errors on Duplicate Parameter Names:
+
+In strict mode, defining a function with duplicate parameter names is not allowed and results in an error.
+javascript
+Copy code
+"use strict";
+
+function example(x, x) {
+  // Throws an error in strict mode
+}
+Eliminates this coercion:
+
+In strict mode, the value of this is not automatically coerced to the global object (e.g., window in browsers) when the function is invoked in the global context.
+javascript
+Copy code
+"use strict";
+
+function logThis() {
+  console.log(this); // undefined in strict mode
+}
+
+logThis(); // undefined
+Forbids Octal Literal Syntax:
+
+In strict mode, using octal literals (e.g., 0123) is not allowed. Octal literals are deprecated in modern JavaScript.
+javascript
+Copy code
+"use strict";
+
+var octalNumber = 0123; // Throws an error
+Catches Assignment to arguments and eval:
+
+In strict mode, assigning values to the arguments and eval variables is not allowed.
+javascript
+Copy code
+"use strict";
+
+eval = 42; // Throws an error
+arguments = [1, 2, 3]; // Throws an error
+Makes with Statement Illegal:
+
+The with statement is not allowed in strict mode. Using with can make code ambiguous and harder to optimize.
+javascript
+Copy code
+"use strict";
+
+with (obj) {
+  // Throws an error
+}
+Enabling strict mode in JavaScript is considered good practice as it helps catch common coding mistakes and promotes a safer and more maintainable codebase. It's worth noting that strict mode is opt-in, meaning it needs to be explicitly enabled in the portions of the code where you want its benefits.
+
+interface Animal {
+    name: string;
+    makeSound(): void;
+}
+
+class Dog implements Animal {
+    name: string;
+
+    constructor(name: string) {
+        this.name = name;
+    }
+
+    makeSound() {
+        console.log("Woof!");
+    }
+}
+
+In TypeScript, an array is considered generic because it can hold elements of a specific type,
+ and this type is often specified when declaring or initializing the array. 
+ The term "generic" in this context refers to the ability to work with a variety of data types while
+  maintaining type safety.
+
+
+
