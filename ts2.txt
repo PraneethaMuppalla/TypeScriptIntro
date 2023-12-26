@@ -1,0 +1,9 @@
+Node.js has its own set of modules and APIs that are not present in the browser environment.
+ These include modules like fs (File System), http (HTTP server), path, util, and many others.
+  To write TypeScript code that interacts with these Node.js modules,
+   you need type definitions that describe the types and structures of these modules.
+
+   
+When working with TypeScript and Express, installing @types/express is essential. 
+This package provides TypeScript type definitions (typings) for the Express.js framework. 
+These type definitions allow TypeScript to understand and check the types of Express-specific features, enhancing development by providing static typing, code intelligence, and type checking.
